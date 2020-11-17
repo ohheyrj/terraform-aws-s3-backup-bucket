@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Terraform Init
         run:
-          terraform init
+          terraform init -input=false tests/integration
       - name: Terraform Plan
         run:
-          terraform plan tests/integration
+          terraform plan -out=tfplan tests/integration
