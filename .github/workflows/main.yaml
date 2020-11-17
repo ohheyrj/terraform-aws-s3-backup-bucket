@@ -1,0 +1,15 @@
+---
+on: [push, pull_request]
+
+jobs:
+  terraform_plan:
+    runs-on: ubuntu-latest
+    container:
+      image: hashicorp:terraform
+    steps:
+      - name: Terraform Init
+        run:
+          terraform init
+      - name: Terraform Plan
+        run:
+          terraform plan
