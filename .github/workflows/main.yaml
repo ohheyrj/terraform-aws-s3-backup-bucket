@@ -5,7 +5,7 @@ jobs:
   terraform_plan:
     runs-on: ubuntu-latest
     container:
-      image: hashicorp:terraform
+      image: hashicorp/terraform
     steps:
       - name: Terraform Init
         run:
