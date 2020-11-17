@@ -14,4 +14,4 @@ jobs:
           terraform init
       - name: Terraform Plan
         run:
-          terraform plan
+          terraform plan tests/integration
