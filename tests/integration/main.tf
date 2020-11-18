@@ -7,6 +7,6 @@ module "s3-backup-bucket" {
     source = "../.."
 
     service_name = "integration_tests"
-    bucket_name = "systemsmystery_s3_backup_bucket_integration_tests_${timestamp()}"
+    bucket_name = "systemsmystery_test_bucket_${formatdate("DDMMYYYY_hhmmss", timestamp())}"
     pgp_key = "keybase:richard_annand"
 }
