@@ -12,7 +12,7 @@ jobs:
         run: |
           wget https://github.com/terraform-linters/tflint/releases/download/v0.20.3/tflint_linux_amd64.zip
           unzip tflint_linux_amd64.zip
-          rm flint.zip
+          rm tflint_linux_amd64.zip
       - name: Install awscli
         run: |
           curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
