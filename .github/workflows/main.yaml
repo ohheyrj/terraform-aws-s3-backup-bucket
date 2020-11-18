@@ -27,4 +27,4 @@ jobs:
       - name: Terraform Destroy
         if: ${{ always() }}
         run:
-          terraform destroy -auto-approve test/integration
+          terraform destroy -auto-approve tests/integration
