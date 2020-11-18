@@ -1,0 +1,32 @@
+---
+on: [ push, pull_request ]
+
+jobs:
+  terraform_lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install apt dependancies
+        run:
+          sudo apt install -y curl zip
+      - name: Get tflint
+        run:
+          curl -o tflint.zip https://github.com/terraform-linters/tflint/releases/download/v0.20.3/tflint_linux_amd64.zip
+          unzip tflint.zip
+          rm flint.zip
+      - name: Install awscli
+        run:
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
+          rm awscliv2.zip
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+      - name: Run tflint
+        run:
+          ./tflint --deep --aws-region eu-west-2
