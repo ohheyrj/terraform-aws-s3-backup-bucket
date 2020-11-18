@@ -25,5 +25,6 @@ jobs:
         run:
           terraform apply tfplan
       - name: Terraform Destroy
+        if: ${{ always() }}
         run:
           terraform destroy -auto-approve test/integration
