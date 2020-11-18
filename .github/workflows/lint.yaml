@@ -7,11 +7,11 @@ jobs:
     steps:
       - name: Install apt dependancies
         run:
-          sudo apt install -y curl zip
+          sudo apt install -y wget zip
       - name: Get tflint
         run: |
-          curl https://github.com/terraform-linters/tflint/releases/download/v0.20.3/tflint_linux_amd64.zip -o tflint.zip
-          unzip tflint.zip
+          wget https://github.com/terraform-linters/tflint/releases/download/v0.20.3/tflint_linux_amd64.zip
+          unzip tflint_linux_amd64.zip
           rm flint.zip
       - name: Install awscli
         run: |
