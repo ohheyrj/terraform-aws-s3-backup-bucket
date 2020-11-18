@@ -2,7 +2,7 @@
 on: [push, pull_request]
 
 jobs:
-  terraform_plan:
+  terraform_deployment:
     runs-on: ubuntu-latest
     container:
       image: hashicorp/terraform
@@ -21,3 +21,9 @@ jobs:
       - name: Terraform Plan
         run:
           terraform plan -out=tfplan tests/integration
+      - name: Terraform Apply
+        run:
+          terraform apply tfplan
+      - name: Terraform Destroy
+        run:
+          terraform destroy -auto-approve test/integration
