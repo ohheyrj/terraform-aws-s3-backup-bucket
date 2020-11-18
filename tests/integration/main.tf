@@ -3,6 +3,15 @@ provider "aws" {
     version = "2.33.0"
 }
 
+terraform {
+    backend "s3" {
+        bucket = "systemsmystery-terraform-testing-statefiles"
+        key = "terraform-s3-backup-bucket/terraform.tfstate"
+        region = "eu-west-2"
+        encrypt = "true"
+    }
+}
+
 module "s3-backup-bucket" {
     source = "../.."
 
