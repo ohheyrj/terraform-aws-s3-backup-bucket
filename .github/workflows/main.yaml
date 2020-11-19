@@ -1,0 +1,30 @@
+---
+on: [ pull_request ]
+
+jobs:
+  terraform_deployment:
+    runs-on: ubuntu-latest
+    container:
+      image: hashicorp/terraform
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+      - name: Terraform Init
+        run:
+          terraform init -input=false tests/integration
+      - name: Terraform Plan
+        run:
+          terraform plan -out=tfplan tests/integration
+      - name: Terraform Apply
+        run:
+          terraform apply tfplan
+      - name: Terraform Destroy
+        if: ${{ always() }}
+        run:
+          terraform destroy -auto-approve tests/integration
