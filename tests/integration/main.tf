@@ -1,20 +1,20 @@
 provider "aws" {
-    region = "eu-west-2"
-    version = "2.33.0"
+  region  = "eu-west-2"
+  version = "2.33.0"
 }
 
 terraform {
-    backend "s3" {
-        bucket = "systemsmystery-terraform-testing-statefiles"
-        key = "terraform-s3-backup-bucket/terraform.tfstate"
-        region = "eu-west-2"
-        encrypt = "true"
-    }
+  backend "s3" {
+    bucket  = "systemsmystery-terraform-testing-statefiles"
+    key     = "terraform-s3-backup-bucket/terraform.tfstate"
+    region  = "eu-west-2"
+    encrypt = "true"
+  }
 }
 
 module "s3-backup-bucket" {
-    source = "../.."
+  source = "../.."
 
-    service_name = "integration-tests-${formatdate("DDMMYYYY-hhmmss", timestamp())}"
-    pgp_key = "keybase:richard_annand"
+  service_name = "integration-tests-${formatdate("DDMMYYYY-hhmmss", timestamp())}"
+  pgp_key      = "keybase:richard_annand"
 }
