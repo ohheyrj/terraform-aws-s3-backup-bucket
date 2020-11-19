@@ -1,10 +1,5 @@
 variable "service_name" {
-    description = "Name of service to use for user and policy name"
-    default = ""
-}
-
-variable "bucket_name" {
-    description = "The name of the bucket to use"
+    description = "Name of service to use for user and policy name. This will be used to name the IAM user, policy and bucket."
     default = ""
 }
 

@@ -15,7 +15,6 @@ terraform {
 module "s3-backup-bucket" {
     source = "../.."
 
-    service_name = "integration_tests"
-    bucket_name = "systemsmystery-test-bucket-${formatdate("DDMMYYYY-hhmmss", timestamp())}"
+    service_name = "integration-tests-${formatdate("DDMMYYYY-hhmmss", timestamp())}"
     pgp_key = "keybase:richard_annand"
 }
