@@ -1,0 +1,6 @@
+formatter: markdown document
+sections:
+  hide:
+    - requirements
+settings:
+  color: true
