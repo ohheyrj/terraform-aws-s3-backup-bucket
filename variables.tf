@@ -4,4 +4,5 @@ variable "service_name" {
 
 variable "pgp_key" {
   description = "PGP key to use for secret access key"
+  default = ""
 }
