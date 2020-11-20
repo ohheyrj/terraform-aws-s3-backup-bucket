@@ -1,6 +1,12 @@
 
 # Terraform S3 Backup Bucket
 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/rj175/terraform-aws-s3-backup-bucket?style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/rj175/terraform-aws-s3-backup-bucket/Deployment_test?label=deployment&logo=github&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/rj175/terraform-aws-s3-backup-bucket/Linting?label=linting&logo=github&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rj175/terraform-aws-s3-backup-bucket?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/rj175/terraform-aws-s3-backup-bucket?style=flat-square)
+
 This module will create a IAM user and bucket that can be used for applications requiring an S3 bucket to store backup files.
 
 A IAM policy is also created and attached to the user that allows access only to that bucket.
