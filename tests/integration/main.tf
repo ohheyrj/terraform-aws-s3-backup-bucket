@@ -19,7 +19,7 @@ module "s3-backup-bucket" {
   pgp_key      = "keybase:richard_annand"
 }
 
-module "s3-backup-bucket" {
+module "s3-backup-bucket-no-pgp" {
   source = "../.."
 
   service_name = "integration-tests-no-pgp-${formatdate("DDMMYYYY-hhmmss", timestamp())}"
