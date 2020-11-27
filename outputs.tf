@@ -9,7 +9,7 @@ output "iam_user" {
 }
 
 output "iam_user_access_key_id" {
-  value = aws_iam_access_key.id
+  value = aws_iam_access_key.iam_access_key.id
   description = "The IAM access key id."
 }
 
