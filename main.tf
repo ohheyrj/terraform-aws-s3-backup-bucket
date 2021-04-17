@@ -2,7 +2,7 @@ resource "aws_s3_bucket" "s3_bucket" {
   bucket = "${var.service_name}-backups"
   acl    = "private"
   dynamic "server_side_encryption_configuration" {
-    for_each = var.bucket_encryption ? 1 : []
+    for_each = var.bucket_encryption ? 1 : 0
     content {
       rule {
         apply_server_side_encryption_by_default {
