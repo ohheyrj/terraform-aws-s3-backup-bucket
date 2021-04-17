@@ -1,6 +1,17 @@
 resource "aws_s3_bucket" "s3_bucket" {
   bucket = "${var.service_name}-backups"
   acl    = "private"
+  dynamic "server_side_encryption_configuration" {
+    for_each = var.bucket_encryption ? 1 : []
+    content {
+      rule {
+        apply_server_side_encryption_by_default {
+          kms_master_key_id = var.bucket_encryption_key
+          sse_algorithm     = "aws:kms"
+        }
+      }
+    }
+  }
 }
 
 data "aws_iam_policy_document" "iam_user_policy_document" {
