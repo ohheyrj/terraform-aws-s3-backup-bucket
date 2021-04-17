@@ -1,5 +1,5 @@
 provider "aws" {
-  region  = "eu-west-2"
+  region = "eu-west-2"
 }
 
 terraform {
@@ -22,4 +22,10 @@ module "s3-backup-bucket-no-pgp" {
   source = "../.."
 
   service_name = "integration-tests-no-pgp-${formatdate("DDMMYYYY-hhmmss", timestamp())}"
+}
+
+module "s3-backup-bucket-no-pgp" {
+  source            = "../.."
+  bucket_encryption = false
+  service_name      = "integration-tests-no-encryption-${formatdate("DDMMYYYY-hhmmss", timestamp())}"
 }
