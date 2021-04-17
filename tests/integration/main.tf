@@ -24,8 +24,8 @@ module "s3-backup-bucket-no-pgp" {
   service_name = "integration-tests-no-pgp-${formatdate("DDMMYYYY-hhmmss", timestamp())}"
 }
 
-module "s3-backup-bucket-no-encryption" {
+module "s3-backup-bucket-no-encryp" {
   source            = "../.."
   bucket_encryption = false
-  service_name      = "integration-tests-no-encryption-${formatdate("DDMMYYYY-hhmmss", timestamp())}"
+  service_name      = "integration-tests-no-enc-${formatdate("DDMMYYYY-hhmmss", timestamp())}"
 }
