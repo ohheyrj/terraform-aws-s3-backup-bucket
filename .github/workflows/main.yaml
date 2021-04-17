@@ -6,7 +6,7 @@ jobs:
   terraform_deployment:
     runs-on: ubuntu-latest
     container:
-      image: hashicorp/terraform
+      image: hashicorp/terraform:0.14.5
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
