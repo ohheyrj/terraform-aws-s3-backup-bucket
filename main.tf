@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "s3_bucket" {
       rule {
         apply_server_side_encryption_by_default {
           kms_master_key_id = var.bucket_encryption_key
-          sse_algorithm     = "aws:kms"
+          sse_algorithm     = var.sse_algorithm
         }
       }
     }
